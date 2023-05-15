@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Khảo Sát Thông Tin 2</title>
+    <title>Khảo Sát Thông Tin</title>
 </head>
 <style>
     #wrapper{
@@ -28,24 +28,25 @@
 </style>
 <body>
     <div id="wrapper">
-        <h1 class="title" style="text-align: center;">Khảo Sát Thông Tin 2</h1>
+        <div class="col-12"><h1 class="title" style="text-align: center;">Khảo Sát Thông Tin</h1></div>
+
+        <script type="text/javascript">
+            var submitted=false;
+        </script>
+        <iframe id="hidden_iframe" name="hidden_iframe" onload="if(submitted){alert('Bạn đã gửi thông tin thành công tới hệ thống!');}" style="display: none;"></iframe>
+
         <form action="https://script.google.com/macros/s/AKfycbx4R00NKFhlv9nO69d-mMnFjlX6aG1QooFIj_3gFicDmimTvPI44TRPsa9D7QKvbWZLcA/exec" method="get">
             <div class="form-group">
                 <label for="code">Mã Số</label>
-                <input type="number" name="mã số" id="code" class="form-control" required>
+                <input type="number" name="Mã Số" id="code" class="form-control" placeholder="mã số ..." required>
             </div>
             <div class="form-group">
-                <label for="code">Nội Dung Xử lý</label>
-                <textarea name="Nội Dung Xử Lý" id="" cols="30" rows="3" class="form-control" required></textarea>
+                <label for="fullname">Họ và Tên</label>
+                <input type="text" name="Họ Và Tên" id="fullname" class="form-control" placeholder="Họ và tên ..." required>
             </div>
             <div class="form-group">
-                <label for="fullname">Kết Quả</label>
-                <textarea name="Kết Quả" id="" cols="30" rows="3" class="form-control" required></textarea>
-            </div>
-            <input type="hidden" name="Dấu thời gian" id="thoigian" value="">
-            <!-- <div class="form-group">
                 <label for="address">Địa Chỉ</label>
-                <input type="text" name="Địa Chỉ" id="address" class="form-control" required>
+                <input type="text" name="Địa Chỉ" id="address" class="form-control"placeholder="Địa chỉ ..."  required>
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Email address</label>
@@ -54,13 +55,14 @@
 
             <div class="form-group">
               <label for="date">Ngày Giờ Nộp</label>
-              <input type="datetime-local" class="form-control" name="Ngày Giờ Nộp" id="date" placeholder="" required>
-            </div> -->
-            <!-- <div class="form-group">
-              <label for="date">Ngày Nộp</label>
-              <input type="date" class="form-control" name="date"  id="date" placeholder="" required>
-            </div> -->
-            <a href="khaosat1.html">Click để qua form 1.</a>
+              <input type="datetime-local" class="form-control" name="Ngày Giờ Nộp" id="date" required>
+            </div>
+            <input type="hidden" name="Dấu thời gian" id="thoigian" value="">
+            <div class="form-group">
+              <label for="date">Thông Tin Khác</label>
+              <input type="text" class="form-control" name="Thông Tin Khác"  id="date" placeholder="Thông tin khác ..." required>
+            </div>
+            <a href="home.html">Click để qua form 2.</a>
             <div class="form-group text-center">
                 <input class="btn btn-primary dangkybt" id="ss-submit" value="Gửi" name="submit" type="submit">
             </div>
@@ -68,9 +70,9 @@
     </div>
 </body>
 <script>
-     function checklogin(){
+    function checklogin(){
         let is_login = localStorage.getItem('checklogin');
-        if(is_login == 0){
+        if(is_login != null && is_login == 0){
             window.location = 'index.html';
         }
     }
@@ -103,5 +105,4 @@
         return x;
     }
 </script>
-
 </html>
