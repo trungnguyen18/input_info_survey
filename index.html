@@ -12,10 +12,22 @@
         width: 960px;
         margin: 0px auto;
     }
+    @media (max-width: 576px) {
+        #wrapper{
+            width: 376px;
+            margin: 0px auto;
+        }
+        #wrapper .title{
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 20px;
+        }
+    }
 </style>
 <body>
     <div id="wrapper">
-        <h1 style="text-align: center;">Khảo Sát Thông Tin</h1>
+        <div class="col-12"><h1 class="title" style="text-align: center;">Khảo Sát Thông Tin</h1></div>
 
         <script type="text/javascript">
             var submitted=false;

@@ -12,10 +12,22 @@
         width: 960px;
         margin: 0px auto;
     }
+    @media (max-width: 576px) {
+        #wrapper{
+            width: 376px;
+            margin: 0px auto;
+        }
+        #wrapper .title{
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 20px;
+        }
+    }
 </style>
 <body>
     <div id="wrapper">
-        <h1 style="text-align: center;">Khảo Sát Thông Tin 2</h1>
+        <h1 class="title" style="text-align: center;">Khảo Sát Thông Tin 2</h1>
         <form action="https://script.google.com/macros/s/AKfycbx4R00NKFhlv9nO69d-mMnFjlX6aG1QooFIj_3gFicDmimTvPI44TRPsa9D7QKvbWZLcA/exec" method="get">
             <div class="form-group">
                 <label for="code">Mã Số</label>
