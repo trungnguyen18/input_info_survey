@@ -29,13 +29,17 @@
 <body>
     <div id="wrapper">
         <div class="col-12"><h1 class="title" style="text-align: center;">Khảo Sát Thông Tin</h1></div>
-
+        <!--Cách 1: HIỂN THỊ THÔNG BÁO DẠNG POUPUP -->
+        <script type="text/javascript">
+            var submitted=false;
+        </script>
         <script type="text/javascript">
             var submitted=false;
         </script>
         <iframe id="hidden_iframe" name="hidden_iframe" onload="if(submitted){alert('Bạn đã gửi thông tin thành công tới hệ thống!');}" style="display: none;"></iframe>
+        <iframe id="hidden_iframe" name="hidden_iframe" onload="if(submitted){window.location='home.html';}" style="display: none;"></iframe>
 
-        <form action="https://script.google.com/macros/s/AKfycbx4R00NKFhlv9nO69d-mMnFjlX6aG1QooFIj_3gFicDmimTvPI44TRPsa9D7QKvbWZLcA/exec" method="get">
+        <form action="https://script.google.com/macros/s/AKfycbx4R00NKFhlv9nO69d-mMnFjlX6aG1QooFIj_3gFicDmimTvPI44TRPsa9D7QKvbWZLcA/exec" method="get" onsubmit="submitted=true;" target="hidden_iframe">
             <div class="form-group">
                 <label for="code">Mã Số</label>
                 <input type="number" name="Mã Số" id="code" class="form-control" placeholder="mã số ..." required>
@@ -104,5 +108,13 @@
             x = "0" + x;
         return x;
     }
+
+    // function send_info(){
+    //     const btn_submit = document.getElementById('ss-submit');
+    //     btn_submit.addEventListener('click', function(){
+    //        console.log('oke');
+    //     })
+    // }
+    // send_info();
 </script>
 </html>
