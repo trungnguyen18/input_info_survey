@@ -72,7 +72,7 @@
 <script>
     function checklogin(){
         let is_login = localStorage.getItem('checklogin');
-        if(is_login == 0){
+        if(is_login != null && is_login == 0){
             window.location = 'login.html';
         }
     }
