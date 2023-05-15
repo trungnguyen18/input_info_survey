@@ -1,10 +1,4 @@
-<?php
-session_start();
-ob_start();
-    if(!isset($_SESSION['is_login'])){
-        header("location: login.php");
-    }
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,7 +60,7 @@ ob_start();
               <label for="date">Ngày Nộp</label>
               <input type="date" class="form-control" name="date"  id="date" placeholder="" required>
             </div> -->
-            <a href="index.php">Click để qua form 1.</a>
+            <a href="index.html">Click để qua form 1.</a>
             <div class="form-group text-center">
                 <input class="btn btn-primary dangkybt" id="ss-submit" value="Gửi" name="submit" type="submit">
             </div>
@@ -74,6 +68,13 @@ ob_start();
     </div>
 </body>
 <script>
+     function checklogin(){
+        let is_login = localStorage.getItem('checklogin');
+        if(is_login == 0){
+            window.location = 'login.html';
+        }
+    }
+    checklogin()
     function thoigiantudong(){
         const t = new Date();
         let h = t.getHours();
@@ -102,4 +103,5 @@ ob_start();
         return x;
     }
 </script>
+
 </html>
