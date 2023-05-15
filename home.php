@@ -1,3 +1,10 @@
+<?php
+session_start();
+ob_start();
+    if(!isset($_SESSION['is_login'])){
+        header("location: login.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,6 +48,7 @@
                 <label for="fullname">Kết Quả</label>
                 <textarea name="Kết Quả" id="" cols="30" rows="3" class="form-control" required></textarea>
             </div>
+            <input type="hidden" name="Dấu thời gian" id="thoigian" value="">
             <!-- <div class="form-group">
                 <label for="address">Địa Chỉ</label>
                 <input type="text" name="Địa Chỉ" id="address" class="form-control" required>
@@ -58,11 +66,40 @@
               <label for="date">Ngày Nộp</label>
               <input type="date" class="form-control" name="date"  id="date" placeholder="" required>
             </div> -->
-            <a href="index.html">Click để qua form 1.</a>
+            <a href="index.php">Click để qua form 1.</a>
             <div class="form-group text-center">
                 <input class="btn btn-primary dangkybt" id="ss-submit" value="Gửi" name="submit" type="submit">
             </div>
           </form>
     </div>
 </body>
+<script>
+    function thoigiantudong(){
+        const t = new Date();
+        let h = t.getHours();
+        let m = t.getMinutes();
+        let s = t.getSeconds();
+        let dd = t.getDate();
+        let mm = t.getMonth() + 1;
+        let yy = t.getFullYear();
+
+        h = format2so(h);
+        m = format2so(m);
+        s = format2so(s);
+
+        const date = dd + "/" + mm + "/" + yy + "-" + h + ":" + m + ":" + s;
+        
+        setTimeout(thoigiantudong, 1000);
+
+        let thoigian = document.getElementById('thoigian') ;
+        thoigian.setAttribute('value', date);
+    }
+    thoigiantudong()
+
+    function format2so(x){
+        if(x < 10)
+            x = "0" + x;
+        return x;
+    }
+</script>
 </html>

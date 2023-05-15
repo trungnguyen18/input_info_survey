@@ -1,3 +1,10 @@
+<?php
+session_start();
+ob_start();
+    if(!isset($_SESSION['is_login'])){
+        header("location: login.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,15 +63,46 @@
               <label for="date">Ngày Giờ Nộp</label>
               <input type="datetime-local" class="form-control" name="Ngày Giờ Nộp" id="date" required>
             </div>
+            <input type="hidden" name="Dấu thời gian" id="thoigian" value="">
             <div class="form-group">
               <label for="date">Thông Tin Khác</label>
               <input type="text" class="form-control" name="Thông Tin Khác"  id="date" placeholder="Thông tin khác ..." required>
             </div>
-            <a href="home.html">Click để qua form 2.</a>
+            <a href="home.php">Click để qua form 2.</a>
+            <a href="login.php">Đăng nhập</a>
             <div class="form-group text-center">
                 <input class="btn btn-primary dangkybt" id="ss-submit" value="Gửi" name="submit" type="submit">
             </div>
           </form>
     </div>
 </body>
+<script>
+    function thoigiantudong(){
+        const t = new Date();
+        let h = t.getHours();
+        let m = t.getMinutes();
+        let s = t.getSeconds();
+        let dd = t.getDate();
+        let mm = t.getMonth() + 1;
+        let yy = t.getFullYear();
+
+        h = format2so(h);
+        m = format2so(m);
+        s = format2so(s);
+
+        const date = dd + "/" + mm + "/" + yy + "-" + h + ":" + m + ":" + s;
+        
+        setTimeout(thoigiantudong, 1000);
+
+        let thoigian = document.getElementById('thoigian') ;
+        thoigian.setAttribute('value', date);
+    }
+    thoigiantudong()
+
+    function format2so(x){
+        if(x < 10)
+            x = "0" + x;
+        return x;
+    }
+</script>
 </html>
